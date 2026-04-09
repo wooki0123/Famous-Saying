@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class App {
     Scanner scanner = new Scanner(System.in);
-    int lastId = 0;
+    int id = 0;
     List<WiseSaying> wiseSayingList = new ArrayList<>();
 
     void run() {
@@ -31,21 +31,19 @@ public class App {
     }
     void actionWrite() {
         System.out.print("명언: ");
-        String wiseSayingContent = scanner.nextLine().trim();
+        String content = scanner.nextLine().trim();
 
         System.out.print("작가: ");
-        String wiseSayingAuthor = scanner.nextLine().trim();
+        String author = scanner.nextLine().trim();
 
-        System.out.printf("%d번 명언이 등록되었습니다.\n", lastId + 1);
+        System.out.printf("%d번 명언이 등록되었습니다.\n", id + 1);
 
-        WiseSaying wiseSaying = new WiseSaying();
-        wiseSaying.id = lastId;
-        wiseSaying.content = wiseSayingContent;
-        wiseSaying.author = wiseSayingAuthor;
+        WiseSaying wiseSaying = new WiseSaying(id, content, author);
+
 
         wiseSayingList.add(wiseSaying);
 
-        lastId++;
+        id++;
     }
     void actionList() {
         System.out.println("번호 / 작가 / 명언");
@@ -53,7 +51,7 @@ public class App {
 
         for (int i = wiseSayingList.size() - 1; i >= 0; i--) {
             WiseSaying wiseSaying = wiseSayingList.get(i);
-            System.out.printf("%d / %s / %s\n".formatted(wiseSaying.id+1, wiseSaying.content, wiseSaying.author));
+            System.out.printf("%d / %s / %s\n".formatted(wiseSaying.getId()+1, wiseSaying.getContent(), wiseSaying.getAuthor()));
         }
     }
 }
