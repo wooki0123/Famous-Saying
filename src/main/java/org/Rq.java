@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Rq {
-    private String actionName;
-    private Map<String, String> paramsMap;
+    private final String actionName;
+    private final Map<String, String> paramsMap;
 
     Rq(String cmd) {
         paramsMap = new HashMap<>();
