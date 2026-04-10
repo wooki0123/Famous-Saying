@@ -56,10 +56,16 @@ public class App {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        for (int i = wiseSayingList.size() - 1; i >=0; i--) {
-            WiseSaying wiseSaying = wiseSayingList.get(i);
-            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
-        }
+//        for (int i = wiseSayingList.size() - 1; i >=0; i--) {
+//            WiseSaying wiseSaying = wiseSayingList.get(i);
+//            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
+//        } 스트림 X
+
+
+        wiseSayingList.reversed()
+                .stream()
+                .map(wiseSaying -> "%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()))
+                .forEach(System.out::println);
     }
 
     void actionDelete(String cmd) {
