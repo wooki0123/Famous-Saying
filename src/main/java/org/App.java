@@ -111,19 +111,10 @@ public class App {
     }
 
     WiseSaying findById(int id) {
-        WiseSaying wiseSaying = null;
-        for (int i = 0; i < wiseSayingList.size(); i++) {
-            if (wiseSayingList.get(i).getId() == id) {
-                wiseSaying = wiseSayingList.get(i);
-            }
-        }
-
-        if (wiseSaying == null) {
-            System.out.println("해당 아이디는 존재하지 않습니다.");
-            return null;
-        }
-
-        return wiseSaying;
+        return wiseSayingList.stream()
+                .filter(ws -> ws.getId() == id)
+                .findFirst()
+                .orElse(null);
     }
 
     int CmdSplitId(String cmd) {
