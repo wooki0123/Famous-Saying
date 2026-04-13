@@ -6,22 +6,20 @@ import org.domain.wiseSaying.WiseSayingController;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class App {
-    private final Scanner scanner = new Scanner(System.in);
     private final int lastId = 0;
     private final List<WiseSaying> wiseSayingList = new ArrayList<>();
-    WiseSayingController wiseSayingController = new WiseSayingController(scanner);
+    WiseSayingController wiseSayingController = AppContext.wiseSayingController;
 
     void run () {
-        SystemController systemController = new SystemController();
+        SystemController systemController = AppContext.systemController;
 
         System.out.println("== 명언 앱 ==");
 
         while (true) {
             System.out.print("명령) ");
-            String cmd = scanner.nextLine().trim();
+            String cmd = AppContext.scanner.nextLine().trim();
 
             Rq rq = new Rq(cmd);
 

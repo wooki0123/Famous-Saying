@@ -1,5 +1,6 @@
 package org.domain.wiseSaying;
 
+import org.AppContext;
 import org.Rq;
 
 import java.util.List;
@@ -7,14 +8,9 @@ import java.util.Scanner;
 
 
 public class WiseSayingController {
-    private final Scanner scanner;
-    private WiseSayingService wiseSayingService;
+    private final Scanner scanner = AppContext.scanner;
+    private final WiseSayingService wiseSayingService = AppContext.wiseSayingService;
     private WiseSayingRepository wiseSayingRepository;
-
-    public WiseSayingController (Scanner scanner) {
-        this.scanner = scanner;
-        this.wiseSayingService = new WiseSayingService();
-    }
 
     public void actionWrite() {
         System.out.print("명언: ");
