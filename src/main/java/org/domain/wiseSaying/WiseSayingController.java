@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class WiseSayingController {
     private final Scanner scanner;
     private WiseSayingService wiseSayingService;
+    private WiseSayingRepository wiseSayingRepository;
 
     public WiseSayingController (Scanner scanner) {
         this.scanner = scanner;
