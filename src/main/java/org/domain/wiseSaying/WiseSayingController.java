@@ -42,7 +42,7 @@ public class WiseSayingController {
 
         wiseSayingList.reversed()
                 .stream()
-                .map(wiseSaying -> "%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()))
+                .map(wiseSaying -> "%d / %s / %s / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent(), wiseSaying.getCreateDate(), wiseSaying.getModifiedDate()))
                 .forEach(System.out::println);
     }
 

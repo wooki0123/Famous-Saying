@@ -1,5 +1,6 @@
 package org.domain.wiseSaying;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,25 +12,33 @@ public class WiseSayingRepository {
         return wiseSayingList;
     }
 
-    public WiseSaying write (String author, String content) {
-        WiseSaying wiseSaying = new WiseSaying(++lastId, author, content );
-
-        wiseSayingList.add(wiseSaying);
-
-        return wiseSaying;
-    }
+//    public WiseSaying write (String author, String content) {
+//        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author );
+//
+//        wiseSayingList.add(wiseSaying);
+//
+//        return wiseSaying;
+//    }
+//
+//    public void modify(WiseSaying wiseSaying, String content, String author) {
+//        wiseSaying.setContent(content);
+//        wiseSaying.setAuthor(author);
+//        wiseSaying.setModifiedDate(LocalDateTime.now());
+//    }
 
     public void delete(WiseSaying wiseSaying) {
         wiseSayingList.remove(wiseSaying);
     }
 
-    public void modify(WiseSaying wiseSaying, String content, String author) {
-        wiseSaying.setContent(content);
-        wiseSaying.setAuthor(author);
-    }
+    public WiseSaying save(WiseSaying wiseSaying) {
+        if (wiseSaying.isNew()) {
+            wiseSaying.setId(++lastId);
+            wiseSayingList.add(wiseSaying);
+        } else {
+            wiseSaying.setModifiedDate(LocalDateTime.now());
+        }
 
-    public List<WiseSaying> getWiseSayings() {
-        return wiseSayingList;
+        return wiseSaying;
     }
 
     public WiseSaying findById(int id) {

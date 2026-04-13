@@ -1,18 +1,26 @@
 package org.domain.wiseSaying;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class WiseSaying {
-    private final int id;
+    private int id;
     private String content;
     private String author;
     private LocalDateTime createDate;
     private LocalDateTime modifiedDate;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd:HH:mm:ss");
 
-    public WiseSaying(int id, String content, String author) {
-        this.id = id;
+    public WiseSaying(String content, String author) {
+        LocalDateTime now = LocalDateTime.now();
         this.content = content;
         this.author = author;
+        this.createDate = now;
+        this.modifiedDate = now;
+    }
+
+    public boolean isNew() {
+        return getId() == 0;
     }
 
     public int getId() {
@@ -27,12 +35,16 @@ public class WiseSaying {
         return author;
     }
 
-    public LocalDateTime getCreateDate() {
-        return createDate;
+    public String getCreateDate() {
+        return createDate.format(formatter);
     }
 
-    public LocalDateTime getModifiedDate() {
-        return modifiedDate;
+    public String getModifiedDate() {
+        return modifiedDate.format(formatter);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setContent(String content) {
@@ -41,10 +53,6 @@ public class WiseSaying {
 
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    public void setCreateDate(LocalDateTime createDate) {
-        this.createDate = createDate;
     }
 
     public void setModifiedDate(LocalDateTime modifiedDate) {

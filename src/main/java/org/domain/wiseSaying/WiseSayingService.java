@@ -10,16 +10,19 @@ public class WiseSayingService {
     }
 
     public WiseSaying write (String author, String content) {
-        return this.wiseSayingRepository.write(author, content);
+        WiseSaying wiseSaying = new WiseSaying(content, author);
+        return this.wiseSayingRepository.save(wiseSaying);
     }
     public void delete(WiseSaying wiseSaying) {
         this.wiseSayingRepository.delete(wiseSaying);
     }
     public void modify(WiseSaying wiseSaying, String content, String author) {
-        this.wiseSayingRepository.modify(wiseSaying, content, author);
+        wiseSaying.setContent(content);
+        wiseSaying.setAuthor(author);
+        this.wiseSayingRepository.save(wiseSaying);
     }
     public List<WiseSaying> getWiseSayings() {
-        return this.wiseSayingRepository.getWiseSayings();
+        return this.wiseSayingRepository.getWiseSayingList();
     }
     public WiseSaying findById(int id) {
         return this.wiseSayingRepository.findById(id);
