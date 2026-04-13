@@ -1,7 +1,5 @@
 package org.domain.wiseSaying;
 
-import org.WiseSaying;
-
 import java.util.List;
 
 public class WiseSayingService {

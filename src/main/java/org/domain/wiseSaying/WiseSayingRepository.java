@@ -1,7 +1,5 @@
 package org.domain.wiseSaying;
 
-import org.WiseSaying;
-
 import java.util.ArrayList;
 import java.util.List;
 

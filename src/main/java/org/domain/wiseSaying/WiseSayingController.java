@@ -1,7 +1,6 @@
 package org.domain.wiseSaying;
 
 import org.Rq;
-import org.WiseSaying;
 
 import java.util.List;
 import java.util.Scanner;

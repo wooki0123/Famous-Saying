@@ -1,6 +1,7 @@
 package org;
 
 import org.domain.system.SystemController;
+import org.domain.wiseSaying.WiseSaying;
 import org.domain.wiseSaying.WiseSayingController;
 
 import java.util.ArrayList;
